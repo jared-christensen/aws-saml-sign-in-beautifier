@@ -7,6 +7,10 @@
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
+    "build-chrome": "plasmo build --target=chrome-mv3 --zip",
+    "build-firefox": "plasmo build --target=firefox-mv2 --zip",
+    "build-edge": "plasmo build --target=edge-mv3 --zip",
+    "build-all": "npm run build-chrome && npm run build-firefox && npm run build-edge",
     "package": "plasmo package"
   },
   "dependencies": {
