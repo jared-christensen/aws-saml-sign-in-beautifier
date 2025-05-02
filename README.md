@@ -13,6 +13,7 @@ If your company manages many AWS accounts, selecting the right role from the AWS
 - Turning role radio buttons into submit buttons – No need to scroll down and click "Sign In"
 - Organizing the Account list into two columns – Quickly find the right Account
 - Adding color coding for clarity – Visually differentiate accounts
+- Introducing a dark mode – Enhances usability in low-light environments
 
 Designed for users managing multiple AWS accounts.
 
