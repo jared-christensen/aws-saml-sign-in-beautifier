@@ -1,8 +1,8 @@
 # AWS SAML Sign-In Beautifier
 
-A browser extension that improves the AWS SAML sign-in page—especially for users managing many accounts. It enhances readability, speeds up role selection, and adds features like filtering, keyboard navigation, and dark mode.
+A browser extension that improves the AWS SAML sign-in page, especially for users managing many accounts. It enhances readability, speeds up role selection, and adds features like filtering, keyboard navigation, and dark mode.
 
-AWS’s default SAML sign-in page can be slow and frustrating—especially when you have access to dozens (or hundreds) of roles.
+AWS’s default SAML sign-in page can be slow and frustrating, especially when you have access to dozens (or hundreds) of roles.
 
 ## Key Features
 
