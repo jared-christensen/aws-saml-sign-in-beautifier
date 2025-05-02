@@ -1,22 +1,31 @@
 # AWS SAML Sign-In Beautifier
 
-AWS SAML Sign-In Beautifier is a project aimed at improving the AWS SAML Sign-In page by making role selection faster, enhancing UI readability, and adding colors for easier scanning. This is especially useful for users managing multiple AWS accounts.
+A browser extension that improves the AWS SAML sign-in page—especially for users managing many accounts. It enhances readability, speeds up role selection, and adds features like filtering, keyboard navigation, and dark mode.
 
-## Chrome Extension (Available Now)
+AWS’s default SAML sign-in page can be slow and frustrating—especially when you have access to dozens (or hundreds) of roles.
 
-Get it from the [Chrome Web Store](https://chromewebstore.google.com/detail/aws-saml-signin-beautifie/kcokjencejoakomoobgbahgfhchohfmp).
+## Key Features
 
-## What This Project Does
+- **One-Click Sign-In** – Instantly sign in by clicking a role button
+- **Account Filter** – Quickly narrow down roles with a search input
+- **Keyboard Navigation** – Navigate and select roles without touching your mouse
+- **Favorite Accounts** – Pin your most-used roles to the top
+- **Smart Text Cleanup** – Automatically remove clutter from button labels
+- **Role Highlighting** – Highlight important roles based on your patterns
+- **Visual Account Categories** – Use color to differentiate production and non-prod
+- **Dark Mode** – Looks great in dark environments and matches your OS theme
 
-If your company manages many AWS accounts, selecting the right role from the AWS SAML login page (`https://signin.aws.amazon.com/saml`) can be frustrating. This project removes friction from the process by:
+This lightweight extension activates only on the AWS SAML sign-in page and includes simple configuration options for power users.
 
-- Turning role radio buttons into submit buttons – No need to scroll down and click "Sign In"
-- Organizing the Account list into two columns – Quickly find the right Account
-- Adding color coding for clarity – Visually differentiate accounts
-- Introducing a dark mode – Enhances usability in low-light environments
+## Get the Extension
 
-Designed for users managing multiple AWS accounts.
+- [Chrome Web Store](https://chromewebstore.google.com/detail/aws-saml-signin-beautifie/kcokjencejoakomoobgbahgfhchohfmp)
+- Firefox Coming Soon
 
 ## Screenshot
 
 ![Screenshot](assets/before-after-md.png)
+
+---
+
+_This extension is not affiliated with or endorsed by Amazon Web Services._
