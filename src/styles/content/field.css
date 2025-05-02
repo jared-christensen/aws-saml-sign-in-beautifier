@@ -1,0 +1,56 @@
+:root {
+  --label-color: #0f141a;
+  --description-color: rgb(101, 104, 113);
+  --input-color: #0f141a;
+  --input-border-color: rgb(140, 140, 148);
+  --input-background-color: #ffffff;
+  --input-focus-outline-color: #006ce0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --label-color: #dedee3;
+    --description-color: #a4a4ad;
+    --input-color: #c6c6cd;
+    --input-border-color: rgb(101, 104, 113);
+    --input-background-color: #161d26;
+    --input-focus-outline-color: #42b4ff;
+  }
+}
+
+.field {
+  margin: 10px 0;
+}
+
+.field label {
+  color: var(--label-color);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.field .description {
+  color: var(--description-color);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.field input[type="text"] {
+  box-sizing: border-box;
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 4px 12px;
+  font-weight: 400;
+  width: 100%;
+  margin-top: 4px;
+  color: var(--input-color);
+  border: 2px solid var(--input-border-color);
+  border-radius: 8px;
+  background-color: var(--input-background-color);
+}
+
+.field input[type="text"]:focus-visible {
+  outline: 2px solid var(--input-focus-outline-color);
+  outline-offset: 2px;
+}

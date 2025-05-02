@@ -1,0 +1,77 @@
+:root {
+  --card-border-color: #c6c6cd;
+  --card-background-color: #ffffff;
+
+  --card-caution-border-color: #855900;
+  --card-caution-background-color: #fffef0;
+
+  --card-info-border-color: #006ce0;
+  --card-info-background-color: #f0fbff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-border-color: #434650;
+    --card-background-color: #161d26;
+
+    --card-caution-border-color: #fbd332;
+    --card-caution-background-color: #191100;
+
+    --card-info-border-color: #42b4ff;
+    --card-info-background-color: #001129;
+  }
+}
+
+.card {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+  gap: 8px !important;
+  background-color: var(--card-background-color) !important;
+  border-radius: 16px !important;
+  border: 2px solid var(--card-border-color) !important;
+  border-radius: 16px !important;
+  padding: 16px 20px !important;
+  box-sizing: border-box !important;
+}
+.card.hide {
+  display: none !important;
+}
+.card.show {
+  display: flex !important;
+}
+.card.caution {
+  border-color: var(--card-caution-border-color) !important;
+  background-color: var(--card-caution-background-color) !important;
+}
+.card.info {
+  border-color: var(--card-info-border-color) !important;
+  background-color: var(--card-info-background-color) !important;
+}
+
+/* Card Title */
+.card .saml-account-name {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Account Number */
+.card .account-number {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 20px !important;
+}
+
+/* Button Container */
+.card .saml-account {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}

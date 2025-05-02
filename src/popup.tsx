@@ -1,13 +1,23 @@
-import { CountButton } from "~features/count-button"
+import "~styles/globals.css";
 
-import "~style.css"
+import { Button } from "@/src/components/ui/button";
 
-function IndexPopup() {
+const IndexPopup = () => {
+  const openOptionsPage = () => {
+    chrome.runtime.openOptionsPage();
+  };
+
   return (
-    <div className="plasmo-flex plasmo-items-center plasmo-justify-center plasmo-h-16 plasmo-w-40">
-      <CountButton />
+    <div className="p-5 font-sans w-72 space-y-4">
+      <p className="text-gray-600 text-sm">
+        Customize your experience by configuring options like favorite accounts, button styles, and account labels in
+        the Options page.
+      </p>
+      <Button className="w-full" onClick={openOptionsPage}>
+        Options
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default IndexPopup
+export default IndexPopup;

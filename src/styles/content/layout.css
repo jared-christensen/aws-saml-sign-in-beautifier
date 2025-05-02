@@ -1,0 +1,52 @@
+:root {
+  --html-color: #0f141a;
+  --html-background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --html-color: #ebebf0;
+    --html-background-color: #161d26;
+  }
+}
+
+/* Rests */
+.saml-role {
+  display: inline-block !important;
+  margin: 0 !important;
+}
+h1.background,
+#saml_form p,
+.saml-account > hr,
+.expandable-container > img,
+.saml-role input[type="radio"],
+#input_signin_button,
+#smallprint {
+  display: none !important;
+}
+#container {
+  display: none;
+}
+#content {
+  border: none !important;
+}
+
+html {
+  color: var(--html-color);
+  background-color: var(--html-background-color);
+}
+
+/* Grid */
+#content fieldset {
+  font-family: "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif !important;
+  letter-spacing: 0.005em !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  margin-top: 20px !important;
+}
+
+/* Filter */
+.filter {
+  margin-top: 20px !important;
+}
