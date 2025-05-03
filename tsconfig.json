@@ -8,5 +8,8 @@
       "@/*": ["./*"],
     },
     "baseUrl": ".",
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
   },
 }

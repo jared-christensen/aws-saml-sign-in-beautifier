@@ -3,15 +3,20 @@ import type { Options } from "~schema/options-schema";
 import { parseRegEx } from "./parse-reg-ex";
 
 // Prettifies the buttons by removing any unwanted text and setting button prominence
-export async function prettifyButtons(account: HTMLElement, options: Options) {
-  const removeFromButtonLabelRegEx = parseRegEx(options.removeFromButtonLabelRegEx);
-  const primaryButtonRegEx = parseRegEx(options.primaryButtonRegEx);
+export async function prettifyButtons(account: HTMLElement, options: Options | undefined) {
+  const removeFromButtonLabelRegEx = parseRegEx(options?.removeFromButtonLabelRegEx);
+  const primaryButtonRegEx = parseRegEx(options?.primaryButtonRegEx);
 
   account.querySelectorAll(".saml-role.clickable-radio").forEach((container) => {
     const radioElement = container.querySelector('input[type="radio"]');
     if (radioElement instanceof HTMLInputElement) {
       const radio = radioElement;
       const label = container.querySelector("label");
+
+      if (!label || !label.textContent) {
+        console.warn("Label or label text content is missing. Skipping this container.");
+        return;
+      }
 
       const roleValue = radio.value;
 
