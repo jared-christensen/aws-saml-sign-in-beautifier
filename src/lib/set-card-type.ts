@@ -1,9 +1,14 @@
+// Adds the "card" class to all account elements, transforming them into cards.
+// Additionally, it sets the type of each card (e.g., caution or info) based on regular expressions defined in the options.
+
 import type { Options } from "~schema/options-schema";
 
 import { parseRegEx } from "./parse-reg-ex";
 
 // Sets the card type based on the account name
-export async function setCardType(account: HTMLElement, options: Options | undefined) {
+export async function setCardType(account: HTMLElement, options?: Options) {
+  account.classList.add("card");
+
   if (!options) return;
 
   const cautionRegEx = parseRegEx(options.cautionCardRegEx);
@@ -11,16 +16,14 @@ export async function setCardType(account: HTMLElement, options: Options | undef
 
   const accountNameElement = account.querySelector(".saml-account-name");
 
-  account.classList.add("card");
-
   if (accountNameElement?.textContent) {
-    const text = accountNameElement.textContent.toLowerCase();
+    const accountName = accountNameElement.textContent.toLowerCase();
     const classes = [];
 
-    if (cautionRegEx?.test(text)) {
+    if (cautionRegEx?.test(accountName)) {
       classes.push("caution");
     }
-    if (infoRegEx?.test(text)) {
+    if (infoRegEx?.test(accountName)) {
       classes.push("info");
     }
 
