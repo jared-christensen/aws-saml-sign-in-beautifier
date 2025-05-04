@@ -182,6 +182,20 @@ const OptionsIndex = () => {
                     </FormItem>
                   )}
                 />
+                <FormField
+                  control={form.control}
+                  name="gridColumns"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Grid Columns</FormLabel>
+                      <FormControl>
+                        <Input type="number" min="1" placeholder="2" {...field} />
+                      </FormControl>
+                      <FormDescription>Set the number of columns for the grid. Default is 2.</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <Button type="submit" disabled={isSaving}>
                   {isSaving ? (
                     <>

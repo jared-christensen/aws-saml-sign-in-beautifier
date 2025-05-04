@@ -7,6 +7,7 @@ export const optionsSchema = z.object({
   infoCardRegEx: z.string().optional(),
   removeFromAccountLabelRegEx: z.string().optional(),
   removeFromButtonLabelRegEx: z.string().optional(),
+  gridColumns: z.string().min(1).default("2"),
 });
 
 export type Options = z.infer<typeof optionsSchema>;

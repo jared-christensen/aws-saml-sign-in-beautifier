@@ -36,12 +36,18 @@ html {
   background-color: var(--html-background-color);
 }
 
+#saml_form {
+  max-width: max-content !important;
+  padding-inline: 20px;
+  margin-inline: auto;
+}
+
 /* Grid */
 #content fieldset {
   font-family: "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif !important;
   letter-spacing: 0.005em !important;
   display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-columns: repeat(var(--grid-columns, 2), 1fr) !important;
   gap: 20px !important;
   margin-top: 20px !important;
 }
@@ -49,4 +55,6 @@ html {
 /* Filter */
 .filter {
   margin-top: 20px !important;
+  max-width: 600px;
+  margin-inline: auto !important;
 }
