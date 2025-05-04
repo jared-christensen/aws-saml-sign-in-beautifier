@@ -51,6 +51,7 @@ html {
   grid-template-columns: repeat(var(--grid-columns, 2), 1fr) !important;
   gap: 20px !important;
   margin-top: 20px !important;
+  width: var(--grid-container-width) !important;
 }
 
 /* Filter */
