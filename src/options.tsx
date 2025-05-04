@@ -88,6 +88,20 @@ const OptionsIndex = () => {
               <form onSubmit={form.handleSubmit(handleSave)} className="space-y-6">
                 <FormField
                   control={form.control}
+                  name="gridColumns"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Grid Columns</FormLabel>
+                      <FormControl>
+                        <Input type="number" min="1" placeholder="2" {...field} />
+                      </FormControl>
+                      <FormDescription>Set the number of columns for the grid.</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
                   name="favoriteAccounts"
                   render={({ field }) => (
                     <FormItem>
@@ -97,7 +111,7 @@ const OptionsIndex = () => {
                       </FormControl>
                       <FormDescription>
                         Enter the Account IDs of your favorite accounts, separated by commas. These accounts will be
-                        pinned to the top of the page for quick access.
+                        pinned for quick access.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -113,8 +127,8 @@ const OptionsIndex = () => {
                         <Input placeholder="/Admin|Billing|Editor/i" {...field} />
                       </FormControl>
                       <FormDescription>
-                        Button labels matching this regular expression will be styled as primary buttons. Use this to
-                        highlight the most important buttons.
+                        Button labels matching this regular expression will be styled as primary buttons to highlight
+                        important actions.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -130,8 +144,8 @@ const OptionsIndex = () => {
                         <Input placeholder="/production/i" {...field} />
                       </FormControl>
                       <FormDescription>
-                        Account names matching this regular expression will be highlighted as caution cards. Use this to
-                        mark accounts that require extra attention, such as production environments.
+                        Account names matching this regular expression will be marked as caution cards, ideal for
+                        highlighting production environments or accounts requiring extra attention.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -147,8 +161,8 @@ const OptionsIndex = () => {
                         <Input placeholder="/delivery/i" {...field} />
                       </FormControl>
                       <FormDescription>
-                        Account names matching this regular expression will be highlighted as info cards. Use this to
-                        mark accounts that have special significance.
+                        Account names matching this regular expression will be highlighted as info cards for special
+                        significance.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -164,8 +178,8 @@ const OptionsIndex = () => {
                         <Input placeholder="/^myCompanyName-/i" {...field} />
                       </FormControl>
                       <FormDescription>
-                        Text matching this regular expression will be removed from account labels. Use this to remove
-                        repetitive prefixes, such as a company name.
+                        Text matching this regular expression will be removed from account labels to eliminate
+                        repetitive prefixes.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -181,23 +195,9 @@ const OptionsIndex = () => {
                         <Input placeholder="/^myCompanyName-/i" {...field} />
                       </FormControl>
                       <FormDescription>
-                        Text matching this regular expression will be removed from button labels. Use this to remove
-                        repetitive prefixes, such as a company name.
+                        Text matching this regular expression will be removed from button labels to eliminate repetitive
+                        prefixes.
                       </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="gridColumns"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Grid Columns</FormLabel>
-                      <FormControl>
-                        <Input type="number" min="1" placeholder="2" {...field} />
-                      </FormControl>
-                      <FormDescription>Set the number of columns for the grid. Default is 2.</FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
