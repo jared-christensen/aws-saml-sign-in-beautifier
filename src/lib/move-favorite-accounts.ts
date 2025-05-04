@@ -11,7 +11,7 @@ export function moveFavoriteAccounts(account: HTMLElement, options?: Options) {
   if (index === -1) return;
 
   account.classList.add("favorite-account");
-  account.style.gridColumn = "span 2";
+  // account.style.gridColumn = "span 2";
 
   const parent = account.parentElement;
   if (!parent) {

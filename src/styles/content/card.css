@@ -30,7 +30,7 @@
   gap: 8px !important;
   background-color: var(--card-background-color) !important;
   border-radius: 16px !important;
-  border: 2px solid var(--card-border-color) !important;
+  border: 1px solid var(--card-border-color) !important;
   border-radius: 16px !important;
   padding: 16px 20px !important;
   box-sizing: border-box !important;
@@ -75,4 +75,10 @@
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 8px !important;
+}
+
+.favorite-account {
+  /* border-width: 4px !important; */
+  outline: 3px solid #e8995f !important;
+  outline-offset: -1px !important;
 }

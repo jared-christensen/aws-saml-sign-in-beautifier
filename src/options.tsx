@@ -38,6 +38,7 @@ const OptionsIndex = () => {
       infoCardRegEx: "",
       removeFromAccountLabelRegEx: "",
       removeFromButtonLabelRegEx: "",
+      gridColumns: "2",
     },
   });
 
@@ -54,7 +55,12 @@ const OptionsIndex = () => {
   const handleSave = async (values: Options) => {
     setIsSaving(true);
     try {
-      await storage.set("options", values);
+      // Ensure gridColumns is always a string
+      const updatedValues = {
+        ...values,
+        gridColumns: values.gridColumns || "2",
+      };
+      await storage.set("options", updatedValues);
       toast({
         title: "Settings saved",
         description: "Your settings have been successfully saved.",

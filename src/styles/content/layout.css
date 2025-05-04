@@ -38,8 +38,9 @@ html {
 
 #saml_form {
   max-width: max-content !important;
-  padding-inline: 20px;
-  margin-inline: auto;
+  padding-inline: 20px !important;
+  margin-inline: auto !important;
+  min-width: 760px !important;
 }
 
 /* Grid */
