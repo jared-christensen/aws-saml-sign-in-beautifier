@@ -20,7 +20,7 @@ AWS’s default SAML sign-in page can be slow and frustrating, especially when y
 ## Get the Extension
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/aws-saml-signin-beautifie/kcokjencejoakomoobgbahgfhchohfmp)
-- Firefox Coming Soon
+- [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/aws-saml-sign-in-beautifier/)
 - Edge Coming Soon
 
 ![Screenshot](assets/before-after-md.png)

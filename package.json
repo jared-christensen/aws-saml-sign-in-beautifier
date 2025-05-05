@@ -44,6 +44,11 @@
   "manifest": {
     "host_permissions": [
       "https://signin.aws.amazon.com/saml"
-    ]
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "jared.christensen@gmail.com"
+      }
+    }
   }
 }
