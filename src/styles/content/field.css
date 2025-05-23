@@ -48,6 +48,7 @@
   border: 2px solid var(--input-border-color);
   border-radius: 8px;
   background-color: var(--input-background-color);
+  margin: 0;
 }
 
 .field input[type="text"]:focus-visible {
