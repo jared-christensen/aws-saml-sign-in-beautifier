@@ -88,3 +88,7 @@
     outline-offset: 2px;
   }
 }
+
+.card:hover .btn:focus {
+  outline: none !important;
+}

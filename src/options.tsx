@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 
 import { Storage } from "@plasmohq/storage";
 
@@ -19,7 +19,7 @@ import {
 } from "@/src/components/ui/form";
 import { Input } from "@/src/components/ui/input";
 import { Toaster } from "@/src/components/ui/toaster";
-import { Loader2 } from "lucide-react";
+import { Loader2, Plus, X } from "lucide-react";
 
 import { toast } from "~hooks/use-toast";
 import { optionsSchema, type Options } from "~schema/options-schema";
@@ -36,10 +36,19 @@ const OptionsIndex = () => {
       primaryButtonRegEx: "",
       cautionCardRegEx: "",
       infoCardRegEx: "",
+      color1CardRegEx: "",
+      color2CardRegEx: "",
+      color3CardRegEx: "",
       removeFromAccountLabelRegEx: "",
       removeFromButtonLabelRegEx: "",
       gridColumns: "2",
+      groups: [],
     },
+  });
+
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: "groups",
   });
 
   useEffect(() => {
@@ -79,13 +88,13 @@ const OptionsIndex = () => {
   return (
     <div className="p-5 font-sans text-base">
       <div className="mx-auto max-w-3xl">
-        <Card>
-          <CardHeader>
-            <CardTitle>Options</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleSave)} className="space-y-6">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(handleSave)} className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>General Settings</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
                 <FormField
                   control={form.control}
                   name="gridColumns"
@@ -117,6 +126,179 @@ const OptionsIndex = () => {
                     </FormItem>
                   )}
                 />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Groups</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <FormDescription>
+                  Organize accounts into named sections. Accounts are matched by regex pattern and appear in the first matching group.
+                </FormDescription>
+                {fields.map((field, index) => (
+                  <div key={field.id} className="flex gap-2 items-start p-4 border rounded-lg">
+                    <div className="flex-1 space-y-4">
+                      <FormField
+                        control={form.control}
+                        name={`groups.${index}.name`}
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Group Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Production" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name={`groups.${index}.regEx`}
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Regex Pattern</FormLabel>
+                            <FormControl>
+                              <Input placeholder="/prod|production/i" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => remove(index)}
+                      className="mt-8"
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ))}
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => append({ name: "", regEx: "" })}
+                  className="w-full"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Group
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Card Colors</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="cautionCardRegEx"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 rounded border border-gray-300" style={{ backgroundColor: '#e07941' }}></span>
+                        Orange
+                      </FormLabel>
+                      <FormControl>
+                        <Input placeholder="/production/i" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        Account names matching this regular expression will be highlighted with an orange color.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="infoCardRegEx"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 rounded border border-gray-300" style={{ backgroundColor: '#688ae8' }}></span>
+                        Blue
+                      </FormLabel>
+                      <FormControl>
+                        <Input placeholder="/delivery/i" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        Account names matching this regular expression will be highlighted with a blue color.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="color1CardRegEx"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 rounded border border-gray-300" style={{ backgroundColor: '#c33d69' }}></span>
+                        Pink
+                      </FormLabel>
+                      <FormControl>
+                        <Input placeholder="/dev|development/i" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        Account names matching this regular expression will be highlighted with a pink color.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="color2CardRegEx"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 rounded border border-gray-300" style={{ backgroundColor: '#2ea597' }}></span>
+                        Teal
+                      </FormLabel>
+                      <FormControl>
+                        <Input placeholder="/staging|stage/i" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        Account names matching this regular expression will be highlighted with a teal color.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="color3CardRegEx"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 rounded border border-gray-300" style={{ backgroundColor: '#8456ce' }}></span>
+                        Purple
+                      </FormLabel>
+                      <FormControl>
+                        <Input placeholder="/prod|production/i" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        Account names matching this regular expression will be highlighted with a purple color.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Buttons</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
                 <FormField
                   control={form.control}
                   name="primaryButtonRegEx"
@@ -134,40 +316,14 @@ const OptionsIndex = () => {
                     </FormItem>
                   )}
                 />
-                <FormField
-                  control={form.control}
-                  name="cautionCardRegEx"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Caution Cards</FormLabel>
-                      <FormControl>
-                        <Input placeholder="/production/i" {...field} />
-                      </FormControl>
-                      <FormDescription>
-                        Account names matching this regular expression will be marked as caution cards, ideal for
-                        highlighting production environments or accounts requiring extra attention.
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="infoCardRegEx"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Info Cards</FormLabel>
-                      <FormControl>
-                        <Input placeholder="/delivery/i" {...field} />
-                      </FormControl>
-                      <FormDescription>
-                        Account names matching this regular expression will be highlighted as info cards for special
-                        significance.
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Label Cleanup</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
                 <FormField
                   control={form.control}
                   name="removeFromAccountLabelRegEx"
@@ -202,21 +358,22 @@ const OptionsIndex = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" disabled={isSaving}>
-                  {isSaving ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Saving...
-                    </>
-                  ) : (
-                    "Save Options"
-                  )}
-                </Button>
-              </form>
-            </Form>
-            <Toaster />
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
+
+            <Button type="submit" disabled={isSaving}>
+              {isSaving ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Saving...
+                </>
+              ) : (
+                "Save Options"
+              )}
+            </Button>
+          </form>
+        </Form>
+        <Toaster />
       </div>
     </div>
   );

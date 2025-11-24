@@ -70,3 +70,18 @@ html {
   max-width: 600px;
   margin-inline: auto !important;
 }
+
+/* Group Headers */
+.group-header {
+  grid-column: 1 / -1 !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-top: 20px !important;
+  color: var(--html-color) !important;
+}
+
+/* Spacer for sections without headers */
+.group-spacer {
+  grid-column: 1 / -1 !important;
+  height: 0px !important;
+}

@@ -1,18 +1,21 @@
 // Adds the "card" class to all account elements, transforming them into cards.
-// Additionally, it sets the type of each card (e.g., caution or info) based on regular expressions defined in the options.
+// Additionally, it sets the card color based on regular expressions defined in the options.
 
 import type { Options } from "~schema/options-schema";
 
 import { parseRegEx } from "./parse-reg-ex";
 
-// Sets the card type based on the account name
+// Sets the card color based on the account name
 export async function setCardType(account: HTMLElement, options?: Options) {
   account.classList.add("card");
 
   if (!options) return;
 
-  const cautionRegEx = parseRegEx(options.cautionCardRegEx);
-  const infoRegEx = parseRegEx(options.infoCardRegEx);
+  const orangeRegEx = parseRegEx(options.cautionCardRegEx);
+  const blueRegEx = parseRegEx(options.infoCardRegEx);
+  const pinkRegEx = parseRegEx(options.color1CardRegEx);
+  const tealRegEx = parseRegEx(options.color2CardRegEx);
+  const purpleRegEx = parseRegEx(options.color3CardRegEx);
 
   const accountNameElement = account.querySelector(".saml-account-name");
 
@@ -20,11 +23,20 @@ export async function setCardType(account: HTMLElement, options?: Options) {
     const accountName = accountNameElement.textContent.toLowerCase();
     const classes = [];
 
-    if (cautionRegEx?.test(accountName)) {
-      classes.push("caution");
+    if (orangeRegEx?.test(accountName)) {
+      classes.push("orange");
     }
-    if (infoRegEx?.test(accountName)) {
-      classes.push("info");
+    if (blueRegEx?.test(accountName)) {
+      classes.push("blue");
+    }
+    if (pinkRegEx?.test(accountName)) {
+      classes.push("pink");
+    }
+    if (tealRegEx?.test(accountName)) {
+      classes.push("teal");
+    }
+    if (purpleRegEx?.test(accountName)) {
+      classes.push("purple");
     }
 
     if (classes.length > 0) {
