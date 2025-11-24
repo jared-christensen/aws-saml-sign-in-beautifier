@@ -1,7 +1,7 @@
 {
   "name": "aws-saml-sign-in-beautifier",
   "displayName": "AWS SAML Sign-In Beautifier",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A browser extension that enhances the AWS SAML Sign-In page, making it easier to use and visually appealing.",
   "author": "Jared Chistensen",
   "scripts": {
@@ -48,7 +48,7 @@
     ],
     "browser_specific_settings": {
       "gecko": {
-        "id": "jared.christensen@gmail.com"
+        "id": "{a1f4c1d2-3000-49e0-94f4-f68e29d67eee}"
       }
     }
   }

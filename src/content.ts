@@ -17,7 +17,7 @@ import "~styles/content/field.css";
 import "~styles/content/layout.css";
 
 export const config: PlasmoCSConfig = {
-  matches: ["https://signin.aws.amazon.com/saml"],
+  matches: ["https://signin.aws.amazon.com/saml", "https://*.signin.aws.amazon.com/saml"],
   run_at: "document_end",
 };
 
