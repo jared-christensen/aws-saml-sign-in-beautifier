@@ -49,6 +49,12 @@ const processAccounts = async () => {
   if (containerElement) {
     containerElement.style.display = "block";
   }
+
+  // Focus filter input after all DOM operations
+  const filterInput = document.getElementById("filter-input") as HTMLInputElement;
+  if (filterInput) {
+    filterInput.focus();
+  }
 };
 
 processAccounts();

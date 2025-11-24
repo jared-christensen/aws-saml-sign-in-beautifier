@@ -35,7 +35,6 @@ export function addAccountFilter() {
   }
 
   form.insertBefore(filterContainer, form.firstChild);
-  filterInput.focus();
 
   filterInput.addEventListener("input", (e: Event) => {
     const target = e.target;
